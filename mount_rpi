@@ -8,5 +8,3 @@ rpiarch=$HOME/workspace/rpi/arch
 
 sudo mount ${1}1 $rpiarch/boot
 sudo mount ${1}2 $rpiarch/root
-sudo mount ${1}3 $rpiarch/backuproot
-sudo mount ${1}4 $rpiarch/user

@@ -5,5 +5,3 @@ set -e
 rpiarch=$HOME/workspace/rpi/arch
 sudo umount $rpiarch/boot
 sudo umount $rpiarch/root
-sudo umount $rpiarch/backuproot
-sudo umount $rpiarch/user

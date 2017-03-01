@@ -34,17 +34,6 @@ n
 p
 2
 
-+1G
-
-n
-p
-3
-
-+1G
-
-n
-p
-
 
 w
 " | fdisk $sd
@@ -58,22 +47,14 @@ mkfs.ext4 ${sd}2
 mkdir -p root
 mount ${sd}2 root
 
-mkfs.ext4 ${sd}3
-mkdir -p backuproot
-mount ${sd}3 backuproot
-
-mkfs.ext4 ${sd}4
-mkdir -p user
-mount ${sd}4 user
-
 echo "Installing root..."
-bsdtar -xpf $img  -C root --exclude=/boot/* --exclude=/etc/* --exclude=/usr/* --exclude=/home/*
+bsdtar -xpf $img  -C root --exclude ./boot
 sync
 
 echo "Installing boot..."
 bsdtar -xpf $img boot
 
 echo "Finishing"
-umount boot root backuproot user
+umount boot root
 
 echo "Done"

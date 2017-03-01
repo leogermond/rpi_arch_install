@@ -1,0 +1,16 @@
+#! /bin/sh
+set -e
+
+if [ "$1" != "" ]; then
+	suffix=_$1
+else
+	suffix=""
+fi
+
+img=img/$(date +%y%m%d_%H%M)$suffix.tar
+echo "save as $img"
+
+echo "add root..."
+tar -cvp -f $img -C root .
+echo "add boot..."
+tar -uvp -f $img boot
